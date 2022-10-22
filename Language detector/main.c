@@ -49,6 +49,7 @@ int main() {
             lNode_top++;
         }
     }
+    struct index yes_nodes[iNode_top];
     // Input the phrases
     for(short i=0;i<p;i++){
         scanf(" %[^\n]s", &text);
@@ -57,7 +58,21 @@ int main() {
     // Calculating no.of available language preferences
     nLang = (int)(sizeof(langs)/sizeof(struct phrases));
     // Detecting languages for all phrases
-    for(short i=0;i<p;i++){
+    for(short a=0;a<p;a++){
+        // Clearing the indexes
+        for(short i=0;i<iNode_top;i++) yes_nodes[i].node_index=0;
         // Checking nodes which are characters available in the phrase
+        for(short i=0;i<iNode_top;i++){
+            short j=0;
+            while(langs[a].text[j]!='\0'){
+                if(langs[a].text[j]==char_nodes[i].character){
+                    yes_nodes[i].node_index=j;
+                    break;
+                }
+                j++;
+            }
+        }
+        //
+        
     }
 }
